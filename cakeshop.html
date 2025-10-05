@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cake Shop</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f4f6fa; margin: 0; padding: 0; }
+.header { background: #c0392b; padding: 15px; text-align: center; color: #fff; font-size: 22px; font-weight: bold; }
+.cakes { display: flex; justify-content: center; gap: 20px; margin: 20px; }
+.cake { text-align: center; }
+.cake img { width: 150px; height: 120px; border-radius: 8px; }
+.order-box { width: 400px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.15); }
+.order-box h3 { text-align: center; margin-bottom: 15px; }
+input { width: 95%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+button { width: 100%; padding: 10px; background: #007BFF; color: #fff; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+button:hover { background: #0056b3; }
+#bill { text-align: center; margin-top: 15px; padding: 10px; background: #27ae60; color: #fff; border-radius: 6px; font-weight: bold; display: none; }
+</style>
+</head>
+<body>
+<div class="header">CAKE SHOP</div>
+
+<div class="cakes">
+<div class="cake">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8d_KOLGrkcVX9zzQc5Vc4eQySF4198YOSo02LdB8B6nWPAXdkJN1_Zy6eZlgyXN-24Kg&usqp=CAU" alt="Rainbow Cake">
+<p>Rainbow Cake – ₹300</p>
+</div>
+<div class="cake">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz27jxwwpwzkT1R5hZJtLLTRjS1VF1fg7XHNMref3x2CR9AMthCdWDxjM9f7LhD-wSC0s&usqp=CAU" alt="Chocolate Cake">
+<p>Chocolate Cake – ₹200</p>
+</div>
+<div class="cake">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd9LoZyrV8Kv7G0DrnoqLOKvjRX3SzvRFfvw&s" alt="Red Velvet Cake">
+<p>Red Velvet Cake – ₹250</p>
+</div>
+<div class="cake">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRREY80tcTRFvcoZMDEGzXuMR5pIByKfRRKDQ&s" alt="Black Forest Cake">
+<p>Black Forest Cake – ₹350</p>
+</div>
+</div>
+
+<div class="order-box">
+<h3>Order Cake</h3>
+<input type="number" id="rainbow" placeholder="Rainbow Cake (Quantity)">
+<input type="number" id="choco" placeholder="Chocolate Cake (Quantity)">
+<input type="number" id="velvet" placeholder="Red Velvet Cake (Quantity)">
+<input type="number" id="forest" placeholder="Black Forest Cake (Quantity)">
+<button onclick="calculateBill()">Place Order</button>
+<div id="bill"></div>
+</div>
+
+<script>
+function calculateBill() {
+let rainbow = parseInt(document.getElementById("rainbow").value) || 0;
+let choco = parseInt(document.getElementById("choco").value) || 0;
+let velvet = parseInt(document.getElementById("velvet").value) || 0;
+let forest = parseInt(document.getElementById("forest").value) || 0;
+
+let total = (rainbow * 300) + (choco * 200) + (velvet * 250) + (forest * 350);
+
+let billBox = document.getElementById("bill");
+billBox.style.display = "block";
+billBox.innerHTML = `Total Price: ₹${total}`;
+}
+</script>
+</body>
+</html>
